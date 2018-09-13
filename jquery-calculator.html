@@ -74,11 +74,19 @@
 
 $(document).ready(function() {
 
-// Your code here...
+  // Your code here...
+  var operator = false; 
 
+  function click(number) {
+    if (!operator) {
+      $("#first-number").append(number);
+    } else {
+      $("#second-number").append(number);
+    }
+  }
 
-});
-
+ 
+})
 </script>
 
 </body>
