@@ -59,9 +59,9 @@
         <div class="card">
           <h3 class="card-header">Result</h3>
           <div class="card-body">
-            <h1 id="first-number"></h1>
-            <h1 id="operator"></h1>
-            <h1 id="second-number"></h1>
+            <h1 id="first-number">21</h1>
+            <h1 id="operator">^</h1>
+            <h1 id="second-number">2</h1>
             <hr>
             <h1 id="result"></h1>
           </div>
@@ -73,6 +73,42 @@
 <script type="text/javascript">
 
 $(document).ready(function() {
+
+$("#button-equal").on("click", function(){
+  var integerOne = $("#first-number").text();
+  var integerTwo = $("#second-number").text();
+  integerOne = parseInt(integerOne);
+  integerTwo = parseInt(integerTwo);
+  switch($("#operator").text()) {
+    case "+":
+      var result = integerOne + integerTwo;
+      $("#result").text(result);
+      break;
+    case "−":
+      var result = integerOne - integerTwo;
+      $("#result").text(result);
+      break;
+    case "×":
+      var result = integerOne * integerTwo;
+      $("#result").text(result);
+      break;
+    case "÷":
+      var result = integerOne / integerTwo;
+      $("#result").text(result);
+      break;
+    case "^" :    
+      var result = Math.pow(integerOne, integerTwo);
+      $("#result").text(result);
+      break;
+  }
+})
+
+$("#button-clear").on("click", function(){
+  $("#first-number").empty();
+  $("#second-number").empty();
+  $("#operator").empty();
+  $("#result").empty();
+})
 
 // Your code here...
 
