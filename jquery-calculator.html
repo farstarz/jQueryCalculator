@@ -73,6 +73,7 @@
 <script type="text/javascript">
 
 $(document).ready(function() {
+
 // Your code here...
 var operator = false;
 // $("button-1").on("click",click(1));
@@ -112,12 +113,20 @@ $("#button-power").on("click",function(){
     $("#operator").html("^");
 });
 
-});
+  // Your code here...
+  var operator = false; 
 
+  function click(number) {
+    if (!operator) {
+      $("#first-number").append(number);
+    } else {
+      $("#second-number").append(number);
+    }
+  }
+
+ 
+});
 </script>
 
 </body>
 </html>
-
-
-
