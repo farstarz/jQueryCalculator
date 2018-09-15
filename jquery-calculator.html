@@ -111,10 +111,49 @@ $("#button-clear").on("click", function(){
 })
 
 // Your code here...
+var op = false;
 
-
+// add + operator event listener
+$("#button-plus").on("click",function(){
+    op = true;
+    $("#operator").text("+");
 });
 
+// add - operator event listener
+$("#button-minus").on("click",function(){
+    op = true;
+    $("#operator").html("&minus;");
+});
+// add * operator event listener
+$("#button-multiply").on("click",function(){
+    op = true;
+    $("#operator").html("&times;");
+});
+// add / operator event listener
+$("#button-divide").on("click",function(){
+    op = true;
+    $("#operator").html("&divide;");
+});
+// add ^ operator event listener
+$("#button-power").on("click",function(){
+    op = true;
+    $("#operator").html("^");
+});
+
+
+  // Your code here...
+  
+$(".number").on("click", function(){
+  if (op===false) {
+    $("#first-number").append(this.value);
+    } else {
+    $("#second-number").append(this.value);
+  }
+});
+  
+
+ 
+});
 </script>
 
 </body>
