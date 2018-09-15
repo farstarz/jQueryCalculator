@@ -59,9 +59,9 @@
         <div class="card">
           <h3 class="card-header">Result</h3>
           <div class="card-body">
-            <h1 id="first-number">21</h1>
-            <h1 id="operator">^</h1>
-            <h1 id="second-number">2</h1>
+            <h1 id="first-number"></h1>
+            <h1 id="operator"></h1>
+            <h1 id="second-number"></h1>
             <hr>
             <h1 id="result"></h1>
           </div>
@@ -73,6 +73,9 @@
 <script type="text/javascript">
 
 $(document).ready(function() {
+  
+var op = false;
+var isFirstEmpty = true;
 
 $("#button-equal").on("click", function(){
   var integerOne = $("#first-number").text();
@@ -108,45 +111,53 @@ $("#button-clear").on("click", function(){
   $("#second-number").empty();
   $("#operator").empty();
   $("#result").empty();
+  op = false;
+  isFirstEmpty = true;
 })
-
-// Your code here...
-var op = false;
 
 // add + operator event listener
 $("#button-plus").on("click",function(){
+  if (isFirstEmpty == false) {
     op = true;
     $("#operator").text("+");
+  }
 });
 
 // add - operator event listener
 $("#button-minus").on("click",function(){
+  if (isFirstEmpty == false) {
     op = true;
     $("#operator").html("&minus;");
+  }
 });
 // add * operator event listener
 $("#button-multiply").on("click",function(){
+  if (isFirstEmpty == false) {
     op = true;
     $("#operator").html("&times;");
+  }
 });
 // add / operator event listener
 $("#button-divide").on("click",function(){
+  if (isFirstEmpty == false) {
     op = true;
     $("#operator").html("&divide;");
+  }
 });
 // add ^ operator event listener
 $("#button-power").on("click",function(){
+  if (isFirstEmpty == false) {
     op = true;
     $("#operator").html("^");
+  }
 });
 
-
-  // Your code here...
   
 $(".number").on("click", function(){
   if (op===false) {
     $("#first-number").append(this.value);
-    } else {
+    isFirstEmpty = false;
+  } else {
     $("#second-number").append(this.value);
   }
 });
